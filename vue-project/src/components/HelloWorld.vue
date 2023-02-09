@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <!-- {{  }} 는 jsp에서 el식과 비슷하다. 표현방식이 다르다 el : ${} // vue : {{  }} -->
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -33,6 +34,7 @@
 <script>
 export default {
   name: 'HelloWorld',
+  /* name : component의 이름. */
   props: {
     msg: String
   }
