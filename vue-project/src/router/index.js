@@ -1,9 +1,26 @@
 /* import는 범용적으로 쓸 수 있는 것들을 하는게 좋아보인다. */
-
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DataBinding from '../views/DataBinding.vue'
-
+import DataBindingHtml from '../views/DataBindingHtml.vue'
+import DataBindingInputText from '../views/DataBindingInputText.vue'
+import DataBindingTextarea from '../views/DataBindingTextArea.vue'
+import DataBindingSelect from '../views/DataBindingSelect.vue'
+import DataBindingCheckBox from '../views/DataBindingCheckBox.vue'
+import DataBindingRadio from '../views/DataBindingRadio.vue'
+import DataBindingAttribute from '../views/DataBindingAttribute.vue'
+import DataBindingButton from '../views/DataBindingButton.vue'
+import DataBindingClass from '../views/DataBindingClass.vue'
+import DataBindingStyle from '../views/DataBindingStyle.vue'
+import DataBindingStyle2 from '../views/DataBindingStyle2.vue'
+import DataBindingList from '../views/DataBindingList.vue'
+import RenderingVif from '../views/RenderingVif.vue'
+import EventClick from '../views/EventClick.vue'
+import EventChange from '../views/EventChange.vue'
+import Computed from '../views/Computed.vue'
+import Watch from '../views/Watch.vue'
+import DataBindingList2 from '../views/DataBindingList2.vue'
+import boardList from '../views/board/boardList.vue'
 
 const routes = [
   {
@@ -14,94 +31,112 @@ const routes = [
   {
     path: '/about',
     name: 'about',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-    /* css, js 등 모든 자원들이 합쳐진걸 component에 담는다. 각각의 자원을 분할해서 담을수도 있다. */
+  },
+  {
+    path: '/databinding',
+    name: 'DataBinding',
+    component: DataBinding
+  },
+  {
+    path: '/databindinghtml',
+    name: 'DataBindingHtml',
+    component: DataBindingHtml
+  },
+  {
+    path: '/databindinginputtext',
+    name: 'DataBindingInputText',
+    component: DataBindingInputText
+  },
+  {
+    path: '/databindingtextarea',
+    name: 'DataBindingTextarea',
+    component: DataBindingTextarea
+  },
+  {
+    path: '/databindingselect',
+    name: 'DataBindingSelect',
+    component: DataBindingSelect
+  },
+  {
+    path: '/databindingcheckbox',
+    name: 'databindingcheckbox',
+    component: DataBindingCheckBox
+  },
+  {
+    path: '/radio',
+    name: 'DataBindingRadio',
+    component: DataBindingRadio
+  },
+  {
+    path: '/grim',
+    name: 'DataBindingAttribute',
+    component: DataBindingAttribute
+  },
+  {
+    path: '/button',
+    name: 'DataBindingButton',
+    component: DataBindingButton
+  },
+  {
+    path: '/class1',
+    name: 'DataBindingClass',
+    component: DataBindingClass
+  },
+  {
+    path: '/inline',
+    name: 'DataBindingStyle',
+    component: DataBindingStyle
+  },
+  {
+    path: '/inline2',
+    name: 'DataBindingStyle2',
+    component: DataBindingStyle2
+  },
+  {
+    path: '/productlist',
+    name: 'DataBindingList',
+    component: DataBindingList
+  },
+  {
+    path: '/vif',
+    name: 'RenderingVif',
+    component: RenderingVif
+  },
+  {
+    path: '/event1',
+    name: 'EventClick',
+    component: EventClick
+  },
+  {
+    path: '/event2',
+    name: 'EventChange',
+    component: EventChange
+  },
+  {
+    path: '/computed',
+    name: 'Computed',
+    component: Computed
+  },
+  {
+    path: '/watch',
+    name: 'Watch',
+    component: Watch
+  },
+  {
+    path: '/getList',
+    name: 'DataBindingList2',
+    component: DataBindingList2
+  },
+  {
+    path : '/boardListVue',
+    name : 'boardList',
+    component : boardList
   },
 
-  /* DataBinding.vue를 함수실행식 임포팅 */
-  // {
-  //   path : '/databinding', /* app.vue의 (꼭 이게 아니더라도 실행 링크)  <router-link to="/databinding">DataBinding - Title</router-link> 의 to=""와 같아야함. */
-  //   name : 'title',
-  //   component : () => import('../views/DataBinding.vue')
-  //   
-  // }
-
-  /* import DataBinding from '../views/DataBinding.vue' 후 경로설정*/
-  {
-    path : '/databinding',
-    name : 'DataBinding',
-    component : DataBinding
-  },
-  {
-    path : '/databindinghtml',
-    name : 'DataBindingHtml',
-    component : () => import('../views/DataBindingHtml')
-  },
-  {
-    path : '/inputText',
-    name : 'inputText',
-    component : () => import('../views/DataBindingInputText')
-  },
-  {
-    path : '/textarea',
-    name : 'textarea',
-    component : () => import('../views/DataBindingTextArea')
-  },
-  {
-    path : '/select',
-    name : 'select',
-    component : () => import('../views/DataBindingSelect')
-  },
-  {
-    path : '/checkbox',
-    name : 'checkbox',
-    component : () => import('../views/DataBindingCheckBox')
-  },
-  {
-    path : '/radio',
-    name : 'radio',
-    component : () => import('../views/DataBindingRadio')
-  },
-  {
-    path : '/imgsrc',
-    name : 'imgsrc',
-    component : () => import('../views/DataBindingAttribute')
-  },
-  {
-    path : '/button',
-    name : 'button',
-    component : () => import('../views/DataBindingButton')
-  },
-  {
-    path : '/class1',
-    name : 'class1',
-    component : () => import('../views/DataBindingClass')
-  },
-  {
-    path : '/style',
-    name : 'style',
-    component : () => import('../views/DataBindingStyle')
-  },
-  {
-    path : '/style2',
-    name : 'style2',
-    component : () => import('../views/DataBindingStyle2')
-  },
-  {
-    path : '/list1',
-    name : 'list',
-    component : () => import('../views/DataBindingList')
-  },
-  {
-    path : '/vif',
-    name : 'vif',
-    component : () => import('../views/RenderingVif')
-  },
-  {
-    path : '/clickevent',
-    name : 'clickEvent',
-    component : () => import('../views/vue_event/EventClick')
-  }
 ]
 
 const router = createRouter({

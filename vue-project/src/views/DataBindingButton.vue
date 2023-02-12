@@ -1,18 +1,15 @@
 <template>
     <div>
-        <input type="text" v-model="textValue">
-        <button type="button" v-bind:disabled="textValue==''">버튼누르셈</button>
-        <!-- input태그의 textValue가 공란이면 버튼을 disabled 시킨다. -->
+        <input typr="text" v-model="textValue"/>
+        <button type="button" v-bind:disabled="textValue==''">버튼을 눌러주세요</button>
     </div>
 </template>
-
 <script>
-     export default{
-        data(){
-            return{
-                textValue : "버튼",
-
-            };
+export default {
+    data() {
+        return {
+            textValue: '버튼'
         }
-     }
+    }
+}
 </script>

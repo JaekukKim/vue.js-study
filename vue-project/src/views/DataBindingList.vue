@@ -1,6 +1,6 @@
 <template>
-  <h1 align="center">제품목록</h1>
-  <div align="center">
+  <div>
+    <h1 align="center">제품목록</h1>
     <table>
       <thead>
         <tr>
@@ -11,8 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <!-- 헤드컬럼 말고 아랫부분에 출력되는건 for문을 사용하여 출력해주자 -->
-        <tr key="i" v-for="(product, i) in productList">
+        <tr :key="i" v-for="(product, i) in productList">
           <td>{{ product.product_name }}</td>
           <td>{{ product.price }}</td>
           <td>{{ product.category }}</td>
@@ -22,41 +21,30 @@
     </table>
   </div>
 </template>
-
 <script>
 export default {
-  data() {
+  data () {
     return {
       productList: [
-        {
-          product_name: "30인치 모니터",
-          price: 250000,
-          category: "컴퓨터/모니터",
-          delivery_price: "2500"
-        },
-        {
-          product_name: "1060본체",
-          price: 400000,
-          category: "컴퓨터/모니터",
-          delivery_price: "4000"
-        },
-        {
-          product_name: "로지텍마우스",
-          price: 60000,
-          category: "마우스",
-          delivery_price: "2500"
-        },
-        {
-          product_name: "레오폴드 에버그린",
-          price: 200000,
-          category: "키보드",
-          delivery_price: "2500"
-        }
-      ],
-    };
-  },
-};
+        { product_name: '30인치 모니터', price: 250000, category: '컴퓨터/모니터', delivery_price: 5000 },
+        { product_name: '17인치 노트북', price: 1570000, category: '컴퓨터/노트북', delivery_price: 5000 },
+        { product_name: '기계식 키보드', price: 130000, category: '컴퓨터/키보드', delivery_price: 5000 },
+        { product_name: '무선   마우스', price: 35000, category: '컴퓨터/마우스', delivery_price: 5000 },
+        { product_name: '유선   마우스', price: 12500, category: '컴퓨터/마우스', delivery_price: 5000 }
+      ]
+    }
+  }
+}
 </script>
 <style scoped>
-
+    table{
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+    width: 100%;
+    }
+    td,th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 10px;
+    }
 </style>
